@@ -13,7 +13,7 @@ const PASSWORD_CONFIG = {
 // 网站信息配置
 const SITE_CONFIG = {
     name: 'LibreTV',
-    url: 'https://tv.5sb.org',
+    url: 'https://libretv.is-an.org',
     description: '免费在线视频搜索与观看平台',
     logo: './image/retrotv_5520.png',
     version: '1.0.3'
@@ -73,11 +73,6 @@ const API_SITES = {
         api: 'https://dbzy.com',
         name: '豆瓣资源',
     },
-    huya: {
-        api: 'https://www.huyaapi.com',
-        name: '虎牙资源',
-        detail: 'https://www.huyaapi.com',
-    },
     mozhua: {
         api: 'https://mozhuazy.com',
         name: '魔爪资源',
@@ -123,47 +118,47 @@ const API_SITES = {
     // 这些影片和背后的产业已经使数百万男女“下海”，出卖自己的身体，甚至以此为生计。
     // 而作为观众无辜吗？毫无疑问，他们促成了黄色产业链的再生产。
     // 我们提供此警告，是希望您能认清这些内容的本质——它们是压迫和奴役的工具，而非娱乐。
-    ckzy: {
-        api: 'https://www.ckzy1.com',
-        name: 'CK资源',
-        adult: true
-    },
-    jkun: {
-        api: 'https://jkunzyapi.com',
-        name: 'jkun资源',
-        adult: true
-    },
-    bwzy: {
-        api: 'https://api.bwzym3u8.com',
-        name: '百万资源',
-        adult: true
-    },
-    souav: {
-        api: 'https://api.souavzy.vip',
-        name: 'souav资源',
-        adult: true
-    },
-    r155: {
-        api: 'https://155api.com',
-        name: '155资源',
-        adult: true
-    },
-    lsb: {
-        api: 'https://apilsbzy1.com',
-        name: 'lsb资源',
-        adult: true
-    },
-    huangcang: {
-        api: 'https://hsckzy.vip',
-        name: '黄色仓库',
-        adult: true,
-        detail: 'https://hsckzy.vip'
-    },
-    yutu: {
-        api: 'https://yutuzy10.com',
-        name: '玉兔资源',
-        adult: true
-    },
+    // ckzy: {
+    //     api: 'https://www.ckzy1.com',
+    //     name: 'CK资源',
+    //     adult: true
+    // },
+    // jkun: {
+    //     api: 'https://jkunzyapi.com',
+    //     name: 'jkun资源',
+    //     adult: true
+    // },
+    // bwzy: {
+    //     api: 'https://api.bwzym3u8.com',
+    //     name: '百万资源',
+    //     adult: true
+    // },
+    // souav: {
+    //     api: 'https://api.souavzy.vip',
+    //     name: 'souav资源',
+    //     adult: true
+    // },
+    // r155: {
+    //     api: 'https://155api.com',
+    //     name: '155资源',
+    //     adult: true
+    // },
+    // lsb: {
+    //     api: 'https://apilsbzy1.com',
+    //     name: 'lsb资源',
+    //     adult: true
+    // },
+    // huangcang: {
+    //     api: 'https://hsckzy.vip',
+    //     name: '黄色仓库',
+    //     adult: true,
+    //     detail: 'https://hsckzy.vip'
+    // },
+    // yutu: {
+    //     api: 'https://yutuzy10.com',
+    //     name: '玉兔资源',
+    //     adult: true
+    // },
 };
 
 // 添加聚合搜索的配置选项
@@ -178,8 +173,10 @@ const AGGREGATED_SEARCH_CONFIG = {
 // 抽象API请求配置
 const API_CONFIG = {
     search: {
-        // 修改搜索接口为返回更多详细数据（包括视频封面、简介和播放列表）
+        // 修改搜索接口支持分页参数
         path: '/api.php/provide/vod/?ac=videolist&wd=',
+        pagePath: '/api.php/provide/vod/?ac=videolist&wd={query}&pg={page}',
+        maxPages: 50, // 最大获取页数
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
             'Accept': 'application/json'
